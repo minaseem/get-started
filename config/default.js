@@ -9,18 +9,42 @@ const path = require('path');
 const Visualizer = require('webpack-visualizer-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const vueLoaderConfig = require('./vueloader.config');
+
+function resolve(dir) {
+    return path.join(__dirname, '..', dir)
+}
 
 const PORT = 4000
 module.exports = {
     port: PORT,
     webpack: {
         watch: true,
+        resolve: {
+            extensions: ['.js', '.vue', '.json'],
+            alias: {
+                '@': resolve('src'),
+            },
+            symlinks: false
+        },
         devtool: 'eval',
         entry: {
             'app': './src/index'
         },
         devServer: {
-            port: PORT
+            port: PORT,
+            headers: {
+                'Access-Control-Allow-Origin': "*"
+            },
+            proxy: {
+                '/data': {
+                    // target: 'https://shop.polymer-project.org',
+                    // target: 'https://api.github.com',
+                    target: 'http://localhost:4001',
+                    secure: false,
+                    pathRewrite: {'^/data': ''}
+                }
+            }
         },
         output: {
             filename: '[name].js',
@@ -30,7 +54,8 @@ module.exports = {
                 {test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader'},
                 {test: /\.css$/, use: ExtractTextPlugin.extract({fallback: "style-loader", use: "css-loader"})},
                 {test: /\.svg?name=[name].[ext]$/, loader: 'file-loader'},
-                {test: /\.(svg)$/, use: 'file-loader'}
+                {test: /\.(svg)$/, use: 'file-loader'},
+                {test: /\.vue$/, loader: 'vue-loader', options: vueLoaderConfig}
             ]
         },
         plugins: [
