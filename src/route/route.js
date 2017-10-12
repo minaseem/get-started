@@ -38,6 +38,13 @@ export default [
         }
     },
     {
+        path: '/cart',
+        name: "cart",
+        component: () => {
+            return import('@/pages/Cart/cart');
+        }
+    },
+    {
         path: '/*',
         redirect: '/home',
     },

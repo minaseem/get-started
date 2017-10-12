@@ -1,10 +1,4 @@
 <style>
-    .nav {
-        display: flex;
-        justify-content: space-around;
-        padding: 15px 50px;
-    }
-
     .app-header {
         text-align: center;
         margin: 5px 0;
@@ -23,14 +17,6 @@
                 </router-link>
             </div>
         </router-link>
-        <nav class="nav">
-            <router-link :to="{ name: 'men_s_outerwear.index' }">
-                <div class="nav-item">Men's Outwear</div>
-            </router-link>
-            <div class="nav-item">Ladies Outwear</div>
-            <div class="nav-item">Mens T-Shirt</div>
-            <div class="nav-item">Ladies T-Shirt</div>
-        </nav>
         <slot></slot>
     </div>
 </template>
@@ -39,7 +25,7 @@
     import CartBadge from '../components/cartCountBadge/cartCoundBadge.vue';
 
     export default {
-        name: 'default-layout',
+        name: 'no-header-layout',
         components: {
             CartBadge
         }

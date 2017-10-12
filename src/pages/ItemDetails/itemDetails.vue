@@ -11,7 +11,7 @@
                     <p v-html="meta.description">
                     </p>
                 </div>
-                <div></div>
+                <button v-on:click="addToCart">ADD TO CART</button>
             </div>
         </div>
     </default-layout>
@@ -39,10 +39,18 @@
             DefaultLayout
         },
         beforeMount: function () {
-            console.log("Details mounted");
+            this.$store.dispatch("fetchMensOuterWear");
+        },
+        methods: {
+            addToCart() {
+                this.$store.dispatch("addToCart", this.meta);
+            }
         },
         computed: {
             meta: function () {
+                if (this.$store.state.mensOuterWear === "") {
+                    return {};
+                }
                 var meta = this.$store.state.mensOuterWear.find(x => x.name === this.itemId)
                 meta.description = decodeHtml(meta.description)
                 return meta;

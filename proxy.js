@@ -9,7 +9,6 @@ var proxy = require('express-http-proxy');
 
 app.use('/polymer', proxy('https://shop.polymer-project.org'))
 app.get('/api/data', (req, resp) => {
-    console.log("API HIT");
     resp.send("Hello world")
 });
 app.listen(4001)
