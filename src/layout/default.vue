@@ -20,7 +20,9 @@
             <div class="app-header">SHOP</div>
         </router-link>
         <nav class="nav">
-            <div class="nav-item">Men's Outwear</div>
+            <router-link :to="{ name: 'men_s_outerwear.index' }">
+                <div class="nav-item">Men's Outwear</div>
+            </router-link>
             <div class="nav-item">Ladies Outwear</div>
             <div class="nav-item">Mens T-Shirt</div>
             <div class="nav-item">Ladies T-Shirt</div>

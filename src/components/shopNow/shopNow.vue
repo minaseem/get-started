@@ -39,11 +39,6 @@
     }
     export default {
         name: 'shop-now',
-        props: ['title', 'src', 'routeTo'],
-        data: {
-            title: identity('title'),
-            src: identity('src'),
-            routeTo: identity('routeTo')
-        }
+        props: ['title', 'src', 'routeTo']
     }
 </script>

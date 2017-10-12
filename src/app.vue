@@ -14,6 +14,6 @@
 
         mounted() {
 
-        },
+        }
     };
 </script>

@@ -1,0 +1,1 @@
+export const polymerBase = "https://shop.polymer-project.org/es6-unbundled/"

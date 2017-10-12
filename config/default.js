@@ -27,7 +27,8 @@ module.exports = {
             },
             symlinks: false
         },
-        devtool: 'eval',
+        // devtool: 'eval',
+        devtool: '#cheap-module-eval-source-map',
         entry: {
             'app': './src/index'
         },
