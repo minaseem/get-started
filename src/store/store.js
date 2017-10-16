@@ -8,11 +8,15 @@ export const store = new Vuex.Store({
     state: {
         appName: 'Get started with vue',
         mensOuterWear: "",
+        ladiesOuterWear: "",
         cart: []
     },
     mutations: {
         addMensOuterWear: (context, value) => {
             context.mensOuterWear = value;
+        },
+        addLadiesOuterWear: (context, value) => {
+            context.ladiesOuterWear = value;
         },
         removeItem(context, value) {
             context.cart = context.cart.filter(x => x.name !== value);
@@ -23,6 +27,12 @@ export const store = new Vuex.Store({
             context.state.mensOuterWear === "" && fetch(api.MENS_OUTERWEAR)
                 .then(x => {
                     context.commit("addMensOuterWear", x)
+                });
+        },
+        fetchLadiesOuterWear: function (context) {
+            context.state.ladiesOuterWear === "" && fetch(api.LADIES_OUTERWEAR)
+                .then(x => {
+                    context.commit("addLadiesOuterWear", x)
                 });
         },
         addToCart(context, value) {
@@ -36,6 +46,19 @@ export const store = new Vuex.Store({
                 cart.push(currentItem);
             }
             context.state.cart = cart;
+        },
+        checkout(context) {
+            var cartItems = context.cart;
+            fetch("/data/checkout", {
+                method: "POST",
+                body: JSON.stringify(cartItems)
+            })
+                .then(x => x.json())
+                .then(x => {
+                    // x {
+                    // }
+
+                })
         }
     }
 })

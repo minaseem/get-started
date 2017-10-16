@@ -7,12 +7,12 @@ import Vue from 'vue';
 import App from './app.vue';
 import routes from '@/route/route';
 import VueRouter from 'vue-router';
-import Vuex from 'vuex'
 import {store} from './store/store';
 
 Vue.use(VueRouter);
 export const router = new VueRouter({
-    routes,
+    routes
+    // mode: 'history'
 });
 
 new Vue({

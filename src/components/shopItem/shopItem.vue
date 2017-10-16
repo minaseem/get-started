@@ -1,5 +1,5 @@
 <template>
-    <router-link :to="{name: 'men_s_outerwear.details', params: {itemId: meta.name}}" append>
+    <router-link :to="{name: 'menOuterWear.details', params: {itemId: meta.name}}" append>
         <div class="shop-item">
             <img v-bind:src="url" alt="Image not found" class="fade-in"/>
             <div class="meta">

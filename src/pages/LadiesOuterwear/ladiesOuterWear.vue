@@ -4,7 +4,7 @@
                 class="navbar-brand"
                 :to="{ name: 'ladiesOuterWear' }"
         >
-            <img src="data/polymer/es6-unbundled/images/mens_outerwear.jpg" alt="" class="img-header fade-in">
+            <img src="data/polymer/es6-unbundled/images/ladies_outerwear.jpg" alt="" class="img-header fade-in">
         </router-link>
         <div class="shop-items">
             <shop-item v-for="(meta, key, index) in shopItems" v-bind:meta="meta" v-bind:key="key">
@@ -32,10 +32,10 @@
 
     var identityF = r => () => r;
     export default {
-        name: 'men_s_outerwear',
+        name: 'ladies-outerwear',
         computed: {
             shopItems: function () {
-                return this.$store.state.mensOuterWear;
+                return this.$store.state.ladiesOuterWear;
             }
         },
         components: {
@@ -43,7 +43,7 @@
             ShopItem
         },
         beforeMount: function () {
-            this.$store.dispatch("fetchMensOuterWear");
+            this.$store.dispatch("fetchLadiesOuterWear");
         }
     }
 </script>

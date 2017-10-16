@@ -1,20 +1,18 @@
 <template>
-    <default-layout>
-        <div class="item-details">
-            <img :src="url" alt="">
+    <div class="item-details">
+        <img :src="url" alt="">
+        <div>
+            <div>{{meta.title}}</div>
+            <div>${{meta.price}}</div>
+            <div></div>
             <div>
-                <div>{{meta.title}}</div>
-                <div>${{meta.price}}</div>
-                <div></div>
-                <div>
-                    <strong>Description</strong>
-                    <p v-html="meta.description">
-                    </p>
-                </div>
-                <button v-on:click="addToCart">ADD TO CART</button>
+                <strong>Description</strong>
+                <p v-html="meta.description">
+                </p>
             </div>
+            <button v-on:click="addToCart">ADD TO CART</button>
         </div>
-    </default-layout>
+    </div>
 </template>
 <style>
     .item-details {
