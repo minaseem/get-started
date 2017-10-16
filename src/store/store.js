@@ -13,6 +13,9 @@ export const store = new Vuex.Store({
     mutations: {
         addMensOuterWear: (context, value) => {
             context.mensOuterWear = value;
+        },
+        removeItem(context, value) {
+            context.cart = context.cart.filter(x => x.name !== value);
         }
     },
     actions: {
