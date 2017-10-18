@@ -9,14 +9,6 @@
  */
 
 export default [
-    // Home
-    {
-        path: '/home',
-        name: 'home.index',
-        component: () => {
-            return import('@/pages/Home/Index');
-        },
-    },
     {
         path: '/cart',
         name: "cart",
@@ -31,6 +23,13 @@ export default [
             return import('@/layout/default');
         },
         children: [
+            {
+                path: '/',
+                name: 'home.index',
+                component: () => {
+                    return import('@/pages/Home/Index');
+                },
+            },
             {
                 path: '/menOuterWear',
                 name: 'menOuterWear',
@@ -57,8 +56,8 @@ export default [
             }
         ]
     }, {
-        path: '/*',
-        redirect: '/home',
+        path: '/**',
+        redirect: '/',
     }
 ];
 

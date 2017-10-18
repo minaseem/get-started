@@ -1,12 +1,12 @@
 <template>
-    <default-layout>
-        <shop-now title="Men's OuterWear" src="data/polymer/es6-unbundled/images/mens_outerwear.jpg" routeTo="men_s_outerwear.index"></shop-now>
-        <shop-now title="Ladies OuterWear" src="data/polymer/es6-unbundled/images/ladies_outerwear.jpg"></shop-now>
+    <div>
+        <shop-now title="Men's OuterWear" src="data/polymer/es6-unbundled/images/mens_outerwear.jpg" routeTo="menOuterWear"></shop-now>
+        <shop-now title="Ladies OuterWear" src="data/polymer/es6-unbundled/images/ladies_outerwear.jpg"  routeTo="ladiesOuterWear"></shop-now>
         <div class="flex">
             <shop-now title="Men's T-shirt"src="data/polymer/es6-unbundled/images/mens_tshirts.jpg"></shop-now>
             <shop-now title="Ladies T-shirt" src="data/polymer/es6-unbundled/images/ladies_tshirts.jpg"></shop-now>
         </div>
-    </default-layout>
+    </div>
 </template>
 
 <script>
